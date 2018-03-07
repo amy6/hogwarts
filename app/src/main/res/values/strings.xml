@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Hogwarts</string>
+    <string name="title">Hogwarts School of Witchcraft and Wizardry</string>
+    <string name="description">Draco dormiens nunquam titillandus</string>
+    <string name="address1">Get on the Hogwarts Express on Platform 9 3/4</string>
+    <string name="address">Get on the Hogwarts Express on Platform 9 <superscript>3</superscript>/<subscript>4</subscript></string>
+    <string name="phone">5432123450</string>
+    <string name="website">http://www.hogwartsishere.com/</string>
+    <string name="listenToSong">Hit on play and start your journey!</string>
+    <string name="playButton">Play</string>
+    <string name="stopButton">Stop</string>
+    <string name="call_button">Phone Icon</string>
+    <string name="message_button">Message Icon</string>
+    <string name="play_button_pressedagain_toast">You\'re already having a Harry Day ;)</string>
+    <string name="play_button_toast">Have a Harry Day!</string>
+</resources>
