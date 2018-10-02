@@ -5,6 +5,9 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         TextView phoneNumber = findViewById(R.id.phone_number);
         final String numToUse = phoneNumber.getText().toString();
-
         ImageButton callButton = findViewById(R.id.call_button);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,5 +108,43 @@ public class MainActivity extends AppCompatActivity {
             player.release();
             player = null;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        TextView phoneNumber = findViewById(R.id.phone_number);
+        final String numToUse = phoneNumber.getText().toString();
+        if(item.getItemId()==R.id.weblink){
+            String url = "http://www.gobloggerslive.com";
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+        else if(item.getItemId()==R.id.call){
+
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse("tel:" + numToUse));
+            startActivity(callIntent);
+
+
+        }
+        else if(item.getItemId()==R.id.msg){
+            Intent messageIntent = new Intent(Intent.ACTION_SENDTO);
+            messageIntent.setData(Uri.parse("sms:" + numToUse));
+            startActivity(messageIntent);
+
+        }
+        else if(item.getItemId()==R.id.exit){
+            System.exit(0);
+        }
+        return true;
     }
 }
